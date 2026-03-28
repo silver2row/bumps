@@ -1,13 +1,26 @@
+#!/usr/bin/python3
+
 '''
     Based on gen_gerber_and_drill_files_board.py in kicad/demos directory.
 '''
 
 import sys
+import os
 
-from pcbnew import *
+# Example path for KiCad 8 on Windows
+kicad_python_path = "."
+
+if os.path.exists(kicad_python_path):
+    sys.path.append(kicad_python_path)
+else:
+    raise FileNotFoundError(f"KiCad Python path not found: {kicad_python_path}")
+import pcbnew
+
+
+
 filename=sys.argv[1]
 
-board = LoadBoard(filename)
+board = pcbnew.LoadBoard(filename)
 
 plotDir = "plot/"
 

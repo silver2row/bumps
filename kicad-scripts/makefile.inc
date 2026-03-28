@@ -1,7 +1,7 @@
 # -*- Makefile -*-
 
 %-fab.zip : %-fab.kicad_pcb
-	python kicad-scripts/kicad-fab.py $<
+	python3 kicad-scripts/kicad-fab.py $<
 	zip -r $@ plot/
 
 %-fab.kicad_pcb : %.kicad_pcb
